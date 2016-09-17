@@ -150,3 +150,49 @@ console.log(helper.pageIndex(5)); //should == 1 (zero based index)
 console.log(helper.pageIndex(2)); //should == 0
 console.log(helper.pageIndex(20)); //should == -1
 console.log(helper.pageIndex(-10)); //should == -1
+
+//IQ Test
+function iqTest(numbers){
+    // ...
+    numbers = numbers.split(" ");
+    var odd = [];
+    var even = [];
+    for(var i = 0; i < numbers.length;i++){
+        if (parseInt(numbers[i]) % 2 == 0) {
+            even.push(i);
+        } else {
+            odd.push(i);
+        }
+    }
+    if(odd.length >= even.length){
+        return parseInt(even.pop())+1;
+    }else{
+        return parseInt(odd.pop())+1;
+    }
+}
+console.log(iqTest("2 4 7 8 10"));
+
+function iqTest(numbers){
+    numbers = numbers.split(" ").map(function(el){return parseInt(el)});
+
+    var odd = numbers.filter(function(el){ return el % 2 === 1});
+    var even = numbers.filter(function(el){ return el % 2 === 0});
+
+    return odd.length < even.length ? (numbers.indexOf(odd[0]) + 1) : (numbers.indexOf(even[0]) + 1);
+}
+
+//Create Phone Number
+function createPhoneNumber(numbers){
+    var str = '('
+    for(var i = 0; i < numbers.length; i++){
+        if(i == 3){
+            str += ')';
+            str = str + " ";
+        }
+        if(i == 6){
+            str += '-';
+        }
+        str += numbers[i];
+    }
+    return str;
+}

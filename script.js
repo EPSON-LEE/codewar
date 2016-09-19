@@ -196,3 +196,15 @@ function createPhoneNumber(numbers){
     }
     return str;
 }
+//maxinum subarray sum
+var maxSequence = function(arr){
+    var sum = 0,
+        min = 0,
+        ans = 0,
+        i = 0;
+    for(i = 0; i < arr.length; i++){
+        sum += arr[i];
+        min = Math.min(sum,min);
+        ans = Math.max(sum,sum-min);
+    }
+}
